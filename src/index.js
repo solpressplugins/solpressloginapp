@@ -1,5 +1,5 @@
 import express from "express";
-import routes from "./src/routes/solanaRoutes";
+import routes from "./routes/solanaRoutes";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 require("dotenv").config()
