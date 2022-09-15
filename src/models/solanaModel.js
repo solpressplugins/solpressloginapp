@@ -40,7 +40,7 @@ function verification(message, signature, publicKey) {
 
 UsersSchema.pre('save', function (next) {
     this.verified = verification(new TextEncoder().encode(this.message), bs58.decode(this.signature), bs58.decode(this.publicKey))
-    console.log("Verification", verification(new TextEncoder().encode(this.message), bs58.decode(this.signature), bs58.decode(this.publicKey)))
+    // console.log("Verification", verification(new TextEncoder().encode(this.message), bs58.decode(this.signature), bs58.decode(this.publicKey)))
     next();
 });
 
