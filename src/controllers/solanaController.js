@@ -63,7 +63,7 @@ export const deleteUser = (req, res) => {
 
 //Verify Plugin
 export const verifyPlugin = (req, res, next) => {
-    if (req.body.key && req.body.key === process.env.KEY) {
+    if (req.body.key && req.body.key === process.env.WP_AUTH_TOKEN) {
         next()
     } else {
         return res.status(401).json({ message: "Unauthorized user!" })
