@@ -1,15 +1,18 @@
-import { addNewUser, getUsers, getUserByID, updateUser, deleteUser, verifyPlugin } from "../controllers/solanaController";
+import { addNewUser, getUsers, getUserByID, updateUser, deleteUser, isWpUserRequest, isAdminUserRequest, requestAuthToken } from "../controllers/solanaController";
 
 
 const routes = (app) => {
+    app.route("/accounts")
+        .post(requestAuthToken)
+        
     app.route("/users")
-        .get(verifyPlugin, getUsers)
-        .post(verifyPlugin, addNewUser)
+        .get(isAdminUserRequest, getUsers)
+        .post(isWpUserRequest, isAdminUserRequest, addNewUser)
 
     app.route("/users/:userID")
-        .get(verifyPlugin, getUserByID)
-        .put(verifyPlugin, updateUser)
-        .delete(verifyPlugin, deleteUser)
+        .get(isAdminUserRequest, getUserByID)
+        .put(isAdminUserRequest, updateUser)
+        .delete(isAdminUserRequest, deleteUser)
 }
 
 

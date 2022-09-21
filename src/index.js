@@ -1,11 +1,13 @@
 import express from "express";
+
+require('dotenv').config()
+
 import routes from "./routes/solanaRoutes";
 import bodyParser from "body-parser";
 import db from "./lib/db";
-require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 9009;
 
 db.open()
 .then(() => {
