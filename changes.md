@@ -2,6 +2,8 @@
 - Added `APP_SECRET` and `ADMIN_AUTH_TOKEN` environment variables 
 - Added auth middleware to validate admin and wp user requests for specific routes.
 - Removed `WP_AUTH_TOKEN` environment variable
+- ** Allow shortcode option to set button label.
+- Fixed issue with login for exisiting publickeys. 
   
 ### Sept15
 - renamed KEY ennvironment variable to WP_AUTH_TOKEN
